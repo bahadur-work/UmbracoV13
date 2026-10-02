@@ -56,5 +56,7 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
-#Env Variables
+# Umbraco database
+umbraco/Data/
+# App settings
 appsettings.Local.json
