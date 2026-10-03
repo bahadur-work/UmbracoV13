@@ -485,3 +485,5 @@ umbraco/Data/
 
 appsettings.*.json
 
+# Umbraco / Smidge generated files
+/Smidge/
