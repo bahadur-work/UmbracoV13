@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel
+	public partial class HomePage : PublishedContentModel, IContentProperties, IHeaderProperties, ISEoproperties, ITaggingProperties, IVisibility
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -50,43 +50,64 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Color1
+		/// Main Content: use this property for content of the page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color1")]
-		public virtual string Color1 => this.Value<string>(_publishedValueFallback, "color1");
+		[ImplementPropertyType("mainContent")]
+		public virtual string MainContent => global::Umbraco.Cms.Web.Common.PublishedModels.ContentProperties.GetMainContent(this, _publishedValueFallback);
 
 		///<summary>
-		/// Color2
+		/// Header Content: enter the content for the header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("color2")]
-		public virtual string Color2 => this.Value<string>(_publishedValueFallback, "color2");
+		[ImplementPropertyType("headerContent")]
+		public virtual string HeaderContent => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetHeaderContent(this, _publishedValueFallback);
 
 		///<summary>
-		/// HeadingColor
+		/// Is Followable: Set this true if you want robots to be able to follow this page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("headingColor")]
-		public virtual string HeadingColor => this.Value<string>(_publishedValueFallback, "headingColor");
+		[ImplementPropertyType("isFollowable")]
+		public virtual bool IsFollowable => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetIsFollowable(this, _publishedValueFallback);
 
 		///<summary>
-		/// Img
+		/// Is Indexable: set this true if you want robots to be able to index this page
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("img")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Img => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "img");
+		[ImplementPropertyType("isIndexable")]
+		public virtual bool IsIndexable => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetIsIndexable(this, _publishedValueFallback);
 
 		///<summary>
-		/// Title
+		/// Meta Description: Enter the meta description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+		[ImplementPropertyType("metaDescription")]
+		public virtual string MetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Meta Title: meta title for this page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaTitle")]
+		public virtual string MetaTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SEoproperties.GetMetaTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Tags: choose the tags for this page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTags")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent> PageTags => global::Umbraco.Cms.Web.Common.PublishedModels.TaggingProperties.GetPageTags(this, _publishedValueFallback);
+
+		///<summary>
+		/// Hide: set this to true if you want to hide this page from search results and list pages
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
+		[ImplementPropertyType("umbracoNaviHide")]
+		public virtual bool UmbracoNaviHide => global::Umbraco.Cms.Web.Common.PublishedModels.Visibility.GetUmbracoNaviHide(this, _publishedValueFallback);
 	}
 }
