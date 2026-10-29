@@ -25,7 +25,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		/// <summary>Footer Content</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string FooterContent { get; }
+		global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel FooterContent { get; }
 	}
 
 	/// <summary>Footer Properties</summary>
@@ -65,11 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("footerContent")]
-		public virtual string FooterContent => GetFooterContent(this, _publishedValueFallback);
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel FooterContent => GetFooterContent(this, _publishedValueFallback);
 
 		/// <summary>Static getter for Footer Content</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.16.2+460a980")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetFooterContent(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "footerContent");
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel GetFooterContent(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockGridModel>(publishedValueFallback, "footerContent");
 	}
 }
