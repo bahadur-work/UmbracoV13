@@ -5,7 +5,10 @@
 
 
         <!-- Masthead-->
-       @await Html.PartialAsync("Partials/header")
+       @await Html.GetBlockGridHtmlAsync(Model, "headerContent")
+       @await Html.GetBlockGridHtmlAsync(Model, "mainContent")
+
+       @* @await Html.PartialAsync("Partials/header") *@
         <!-- Portfolio Section-->
         @await Html.PartialAsync("Partials/portfolio")
         <!-- About Section-->
